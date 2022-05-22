@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: |
+          # No variation of temp directory works
+          # go test -v ./... -json > "${{ runner.temp }}/test_output.json"
+          # go run ./.github/test_parser.go -file '${{ runner.temp }}/test_output.json' >> $GITHUB_STEP_SUMMARY
+          
+          go test -v ./... -json | go run ./.github/test_parser.go >> $GITHUB_STEP_SUMMARY
+          echo $GITHUB_STEP_SUMMARY
