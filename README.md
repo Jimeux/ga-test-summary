@@ -2,7 +2,7 @@
 
 ### An example GitHub Actions summary for `go test`
 
-See [.github/golden.md](https://github.com/Jimeux/ga-summary/tree/main/.github/golden.md) for an example.
+See [.github/golden.md](https://github.com/Jimeux/ga-test-summary/tree/main/.github/golden.md) for an example.
 
 ## References
 
