@@ -86,7 +86,7 @@ func handleEvent(b []byte) {
 		skippedCount++
 	case ActionPass:
 		passed[event.Test] = struct{}{}
-		delete(testEvents, event.Test) // remove events when we see pass
+		delete(testEvents, event.Test) // remove events when we see event.Action==pass
 	case ActionFail:
 		failed[event.Test] = struct{}{}
 	case ActionOutput:

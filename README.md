@@ -1,4 +1,4 @@
-# ga-summary
+# ga-test-summary
 
 ### An example GitHub Actions summary for `go test`
 
