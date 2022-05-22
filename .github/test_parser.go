@@ -16,10 +16,10 @@ import (
 )
 
 const (
-	ActionPass   = "pass"
-	ActionFail   = "fail"
-	ActionOutput = "output"
-	ActionSkip   = "skip"
+	actionPass   = "pass"
+	actionFail   = "fail"
+	actionOutput = "output"
+	actionSkip   = "skip"
 
 	moduleName = "github.com/Jimeux/ga-summary"
 )
@@ -27,18 +27,18 @@ const (
 var (
 	fileNameExp, _           = regexp.Compile("^\\s*(\\w+_test.go):\\d+:")
 	fileTests                = make(map[string][]string, 10)
-	testEvents               = make(map[string][]Event, 10)
-	failed                   = make(map[string]struct{}, 10)
-	passed                   = make(map[string]struct{}, 100)
+	testEvents               = make(map[string][]event, 10)
+	failedTests              = make(map[string]struct{}, 10)
+	passedTests              = make(map[string]struct{}, 100)
 	skippedCount             = 0
 	parseErrCount            = 0
 	in             io.Reader = os.Stdin
 	out            io.Writer = os.Stdout
 )
 
-// Event holds data from a single test event.
+// event holds data from a single test event.
 // See cmd/test2json.
-type Event struct {
+type event struct {
 	Time    time.Time `json:"time"`
 	Action  string    `json:"action"`
 	Package string    `json:"package"`
@@ -67,7 +67,7 @@ func main() {
 }
 
 func handleEvent(b []byte) {
-	var event Event
+	var event event
 	if err := json.Unmarshal(b, &event); err != nil {
 		parseErrCount++
 		return
@@ -75,21 +75,21 @@ func handleEvent(b []byte) {
 	if event.Test == "" {
 		return
 	}
-	if _, ok := passed[event.Test]; ok {
+	if _, ok := passedTests[event.Test]; ok {
 		return
 	}
 	// store all events in testEvents, and delete when we see event.Action==pass
 	testEvents[event.Test] = append(testEvents[event.Test], event)
 
 	switch event.Action {
-	case ActionSkip:
+	case actionSkip:
 		skippedCount++
-	case ActionPass:
-		passed[event.Test] = struct{}{}
+	case actionPass:
+		passedTests[event.Test] = struct{}{}
 		delete(testEvents, event.Test) // remove events when we see event.Action==pass
-	case ActionFail:
-		failed[event.Test] = struct{}{}
-	case ActionOutput:
+	case actionFail:
+		failedTests[event.Test] = struct{}{}
+	case actionOutput:
 		// file names are not available, so search for them in output
 		matches := fileNameExp.FindStringSubmatch(event.Output)
 		if len(matches) > 1 {
@@ -100,7 +100,7 @@ func handleEvent(b []byte) {
 }
 
 func writeMarkdown(w io.Writer) {
-	runExpr := strings.Join(sortedKeys(failed), "|")
+	runLocalExpr := strings.Join(sortedKeys(failedTests), "|")
 	_, _ = fmt.Fprintf(w, `# Test Summary
 
 |     Status      | Count |
@@ -118,18 +118,18 @@ go test ./... -v -run '%s'
 
 ## Failure Details
 
-`, len(passed), len(failed), skippedCount, parseErrCount, runExpr)
+`, len(passedTests), len(failedTests), skippedCount, parseErrCount, runLocalExpr)
 
-	for _, name := range sortedKeys(fileTests) {
-		_, _ = fmt.Fprint(w, "---\n\n### `"+name+"`\n\n")
-		for _, test := range fileTests[name] {
-			_, _ = fmt.Fprint(w, "<details>\n<summary>"+test+"</summary>\n\n```bash\n")
-			for _, event := range testEvents[test] {
-				line := strings.Trim(event.Output, " \n")
-				if line == "" {
+	for _, filename := range sortedKeys(fileTests) {
+		_, _ = fmt.Fprint(w, "---\n\n#### `"+filename+"`\n\n")
+		for _, testName := range fileTests[filename] {
+			_, _ = fmt.Fprint(w, "<details>\n<summary>"+testName+"</summary>\n\n```bash\n")
+			for _, event := range testEvents[testName] {
+				output := strings.Trim(event.Output, " \n")
+				if output == "" {
 					continue
 				}
-				_, _ = fmt.Fprintf(w, line+"\n")
+				_, _ = fmt.Fprintf(w, output+"\n")
 			}
 			_, _ = fmt.Fprintf(w, "```\n\n</details>\n\n")
 		}
