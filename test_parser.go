@@ -146,6 +146,9 @@ go test ./... -run '%s'
 			_, _ = fmt.Fprintf(w, "```\n\n</details>\n\n")
 		}
 	}
+
+	os.Setenv("GITHUB_STEP_SUMMARY", "# From Go Code\n\nHello")
+	os.Exit(1) // fail build
 }
 
 func summaryTable() string {
