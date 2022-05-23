@@ -20,8 +20,8 @@ jobs:
       - name: Test
         run: |
           # No variation of temp directory works
-          # go test -v ./... -json > "${{ runner.temp }}/test_output.json"
+          # go test ./... -json > "${{ runner.temp }}/test_output.json"
           # go run ./.github/test_parser.go -file '${{ runner.temp }}/test_output.json' >> $GITHUB_STEP_SUMMARY
           
-          go test -v ./... -json | go run ./.github/test_parser.go >> $GITHUB_STEP_SUMMARY
+          go test ./... -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           echo $GITHUB_STEP_SUMMARY

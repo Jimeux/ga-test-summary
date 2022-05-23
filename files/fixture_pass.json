@@ -1,0 +1,16 @@
+{"Time":"2022-05-23T20:59:36.277657+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_First"}
+{"Time":"2022-05-23T20:59:36.277804+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"=== RUN   TestTests4_First\n"}
+{"Time":"2022-05-23T20:59:36.277811+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"    tests_4_test.go:6: regex-catcher\n"}
+{"Time":"2022-05-23T20:59:36.277817+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"--- PASS: TestTests4_First (0.00s)\n"}
+{"Time":"2022-05-23T20:59:36.277825+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_First","Elapsed":0}
+{"Time":"2022-05-23T20:59:36.277832+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_Second"}
+{"Time":"2022-05-23T20:59:36.277841+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Second","Output":"=== RUN   TestTests4_Second\n"}
+{"Time":"2022-05-23T20:59:36.277848+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Second","Output":"--- PASS: TestTests4_Second (0.00s)\n"}
+{"Time":"2022-05-23T20:59:36.277852+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_Second","Elapsed":0}
+{"Time":"2022-05-23T20:59:36.277855+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_Third"}
+{"Time":"2022-05-23T20:59:36.277858+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Third","Output":"=== RUN   TestTests4_Third\n"}
+{"Time":"2022-05-23T20:59:36.277861+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Third","Output":"--- PASS: TestTests4_Third (0.00s)\n"}
+{"Time":"2022-05-23T20:59:36.277864+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_Third","Elapsed":0}
+{"Time":"2022-05-23T20:59:36.277868+09:00","Action":"output","Package":"command-line-arguments","Output":"PASS\n"}
+{"Time":"2022-05-23T20:59:36.277871+09:00","Action":"output","Package":"command-line-arguments","Output":"ok  \tcommand-line-arguments\t(cached)\n"}
+{"Time":"2022-05-23T20:59:36.277879+09:00","Action":"pass","Package":"command-line-arguments","Elapsed":0}
