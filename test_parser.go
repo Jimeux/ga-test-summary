@@ -23,8 +23,11 @@ const (
 )
 
 var (
+	source io.Reader = os.Stdin
+	dest   io.Writer = os.Stdout
 	// regex to match a filename in an output event
 	fileNameExp, _ = regexp.Compile(`^\s*(\w+_test.go):\d+:`)
+
 	// store test name -> file path mapping. Add file path to failedTests or delete when result is known
 	testFilePath map[string]string
 	// store all events, and delete key when non-fail result (skip/pass) is known
@@ -38,8 +41,6 @@ var (
 	// count event parse failures
 	// Deprecated: remove when functionality is properly validated
 	parseErrCount int
-	source        io.Reader = os.Stdin
-	dest          io.Writer = os.Stdout
 )
 
 // event holds data from a single test event.
@@ -112,17 +113,7 @@ func handleEvent(b []byte) {
 }
 
 func writeMarkdown(w io.Writer) {
-	_, _ = fmt.Fprintf(w, `# Test Summary
-
-|     Status      | Count |
-|-----------------|-------|
-| ✅ Passed       | %d   |
-| ❌ Failed       | %d   |
-| ⏩ Skipped      | %d   |
-| 💥 Parse Errors | %d   |
-
-`, len(passedTests), len(failedTests), len(skippedTests), parseErrCount)
-
+	_, _ = fmt.Fprint(w, summaryTable())
 	if len(failedTests) == 0 {
 		return
 	}
@@ -155,6 +146,19 @@ go test ./... -run '%s'
 			_, _ = fmt.Fprintf(w, "```\n\n</details>\n\n")
 		}
 	}
+}
+
+func summaryTable() string {
+	return fmt.Sprintf(`# Test Summary
+
+|     Status      | Count |
+|-----------------|-------|
+| ✅ Passed       | %d   |
+| ❌ Failed       | %d   |
+| ⏩ Skipped      | %d   |
+| 💥 Parse Errors | %d   |
+
+`, len(passedTests), len(failedTests), len(skippedTests), parseErrCount)
 }
 
 func testsByFile() map[string][]string {
