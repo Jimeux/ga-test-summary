@@ -128,11 +128,11 @@ func writeMarkdown(w io.Writer) {
 	}
 	_, _ = fmt.Fprintf(w, `## Run Failed Tests Locally
 
-	`+"```"+`bash
-	go test ./... -v -run '%s'
-	`+"```"+`
+`+"```"+`bash
+go test ./... -run '%s'
+`+"```"+`
 
-	## Failure Details
+## Failure Details
 `, runLocalCommand())
 
 	fileTests := testsByFile()
@@ -145,7 +145,9 @@ func writeMarkdown(w io.Writer) {
 			_, _ = fmt.Fprint(w, "<details>\n<summary>"+testName+"</summary>\n\n```diff\n")
 			for _, event := range testEvents[testName] {
 				output := strings.Trim(event.Output, " \n")
-				if output == "" {
+				if output == "" ||
+					strings.HasPrefix(output, "=== RUN") ||
+					strings.HasPrefix(output, "--- FAIL") {
 					continue
 				}
 				_, _ = fmt.Fprintf(w, output+"\n")
