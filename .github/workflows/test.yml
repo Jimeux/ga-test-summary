@@ -21,9 +21,10 @@ jobs:
         id: test
         run: |
           echo "before test"
-          json=$(go test ./... -json)
-          status=$?
+          status=0
+          json=$(go test ./... -json) || status=1
           echo "after test"
+          echo $status
           [ $status -eq 0 ] && echo "command was successful" || echo "failed"
           echo $json
           echo "::set-output name=test2json::$json"
