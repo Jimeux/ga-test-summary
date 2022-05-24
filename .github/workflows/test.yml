@@ -20,10 +20,13 @@ jobs:
       - name: Test
         id: test
         run: |
-          echo "::set-output name=test2json::$(go test ./... -json)"
+          json=$(go test ./... -json)
+          status=$?
+          [ $status -eq 0 ] && echo "$cmd command was successful" || echo "$cmd failed"
+          echo "::set-output name=test2json::$json"
 
       - name: Summary
         if: always()
         run: |
-          echo ${{ steps.test.outputs.test2json }} | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.test.outputs.test2json }}" | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           echo $GITHUB_STEP_SUMMARY
