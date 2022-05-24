@@ -20,9 +20,7 @@ jobs:
       - name: Test
         id: test
         run: |
-          JSON_OUTPUT="$(go test ./... -json)"
-          echo $JSON_OUTPUT
-          echo "::set-output name=test2json::$JSON_OUTPUT"
+          echo "::set-output name=test2json::$(go test ./... -json)"
 
       - name: Summary
         if: always()
