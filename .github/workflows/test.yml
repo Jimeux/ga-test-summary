@@ -21,12 +21,14 @@ jobs:
         id: test
         run: |
           status=0
-          json=''"$(go test ./... -json)"'' || status=1
+          test2json=''"$(go test ./... -json)"'' || status=1
           
           echo 'TEST2JSON<<EOF' >> $GITHUB_ENV
-          echo ''"$json"'' >> $GITHUB_ENV
+          echo ''"test2json"'' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
-          
+
+          echo '${{ env.TEST2JSON }}'
+
           [ $status -eq 0 ] && echo "passed" || echo "failed" ; exit 1
 
       - name: Summary

@@ -12,7 +12,7 @@ import (
 //go:embed files
 var files embed.FS
 
-func Test(t *testing.T) {
+func TestParser(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
