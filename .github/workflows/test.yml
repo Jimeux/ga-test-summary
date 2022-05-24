@@ -22,11 +22,15 @@ jobs:
         run: |
           status=0
           json=$(go test ./... -json) || status=1
-          #echo "::set-output name=test2json::${json}"
+          
+          echo 'TEST2JSON<<EOF' >> $GITHUB_ENV
+          echo "$(json)" >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+          
           [ $status -eq 0 ] && echo "passed" || echo "failed" ; exit 1
 
       - name: Summary
         if: always()
         run: |
-          printf '%s\n' "${{ steps.test.outputs.test2json }}" | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          echo "${{ env.TEST2JSON }}" | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           echo $GITHUB_STEP_SUMMARY
