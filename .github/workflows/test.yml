@@ -24,7 +24,7 @@ jobs:
           test2json=''"$(go test ./... -json)"'' || status=1
           
           echo 'TEST2JSON<<EOF' >> $GITHUB_ENV
-          echo ''"test2json"'' >> $GITHUB_ENV
+          echo ''"$test2json"'' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
 
           echo '${{ env.TEST2JSON }}'
