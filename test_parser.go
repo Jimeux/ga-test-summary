@@ -26,21 +26,21 @@ const (
 var (
 	source io.Reader = os.Stdin
 	dest   io.Writer = os.Stdout
-	// regex to match a filename in an output event
+	// regex to match a filename in an output event.
 	fileNameExp, _ = regexp.Compile(`^\s*(\w+_test.go):\d+:`)
 
-	// store test name -> file path mapping. Add file path to failedTests or delete when result is known
+	// store test name -> file path mapping. Add file path to failedTests or delete when result is known.
 	testFilePath map[string]string
-	// store all events, and delete key when non-fail result (skip/pass) is known
+	// store all events, and delete key when non-fail result (skip/pass) is known.
 	testEvents map[string][]event
-	// store fail tests names together with their file paths
+	// store fail tests names together with their file paths.
 	failedTests map[string]string
-	// store pass test names for filtering/count purposes
+	// store pass test names for filtering/count purposes.
 	passedTests map[string]struct{}
-	// store skip test names for filtering/count purposes
+	// store skip test names for filtering/count purposes.
 	skippedTests map[string]struct{}
-	// count event parse failures
-	// Deprecated: remove when functionality is properly validated
+	// count event parse failures.
+	// Deprecated: remove when functionality is properly validated.
 	parseErrCount int
 )
 
@@ -118,13 +118,14 @@ func writeMarkdown(w io.Writer) {
 	summary.WriteString(summaryTable())
 
 	if len(failedTests) == 0 {
-		_, err := fmt.Fprint(w, summary.String())
-		if err != nil {
+		if _, err := fmt.Fprint(w, summary.String()); err != nil {
 			log.Fatalln(err)
 		}
 		return
 	}
 
+	// TODO 2022/05/24 @Jimeux go test is really slow at skipping non-target packages,
+	//  so a go test command per package (rather than ./...) would be easier to use.
 	summary.WriteString(`## Run Failed Tests Locally
 
 ` + "```" + `bash
@@ -162,8 +163,7 @@ go test ./... -run '` + runLocalCommand() + `'
 		}
 	}
 
-	_, err := fmt.Fprint(w, summary.String())
-	if err != nil {
+	if _, err := fmt.Fprint(w, summary.String()); err != nil {
 		log.Fatalln(err)
 	}
 }
