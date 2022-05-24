@@ -21,8 +21,8 @@ jobs:
         id: test
         run: |
           JSON_OUTPUT=""
-          go test ./... -json > $JSON_OUTPUT
-          echo "::set-output name=output::$JSON_OUTPUT"
+          go test ./... -json > "${JSON_OUTPUT}"
+          echo "::set-output name=output::${JSON_OUTPUT}"
 
       - name: Summary
         run: |
