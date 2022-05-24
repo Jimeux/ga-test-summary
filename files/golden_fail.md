@@ -22,7 +22,7 @@ go test ./... -run 'TestTests1_First|TestTests1_FourthTable|TestTests1_Third|Tes
 <summary>TestTests1_First</summary>
 
 ```diff
-2022/05/23 21:38:24 Example log
+2022/05/24 10:59:03 Example log
 tests_1_test.go:10: failed first
 ```
 
@@ -59,8 +59,8 @@ tests_1_test.go:37: failed sub-test
 <summary>TestTests1_Third</summary>
 
 ```diff
-2022/05/23 21:38:24 Example log third 1
-2022/05/23 21:38:24 Example log third 2
+2022/05/24 10:59:03 Example log third 1
+2022/05/24 10:59:03 Example log third 2
 tests_1_test.go:20: failed third
 ```
 
