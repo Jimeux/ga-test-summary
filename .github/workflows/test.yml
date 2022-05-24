@@ -21,7 +21,7 @@ jobs:
         id: test
         run: |
           status=0
-          json='$(go test ./... -json)' || status=1
+          json=''"$(go test ./... -json)"'' || status=1
           
           echo 'TEST2JSON<<EOF' >> $GITHUB_ENV
           echo ''"$json"'' >> $GITHUB_ENV
