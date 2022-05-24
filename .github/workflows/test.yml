@@ -18,6 +18,12 @@ jobs:
         run: go build -v ./...
 
       - name: Test
+        id: test
         run: |
-          set -o pipefail && go test ./... -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          go test ./... -json > $JSON_OUTPUT
+          echo "::set-output name=output::$JSON_OUTPUT"
+
+      - name: Summary
+        run: |
+          go run ./test_parser.go ${{ steps.test.outputs.output }} >> $GITHUB_STEP_SUMMARY
           echo $GITHUB_STEP_SUMMARY
