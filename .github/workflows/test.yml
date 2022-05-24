@@ -21,9 +21,10 @@ jobs:
         id: test
         run: |
           JSON_OUTPUT="$(go test ./... -json)"
-          echo "::set-output name=output::${JSON_OUTPUT}"
+          echo "::set-output name=test2json::${JSON_OUTPUT}"
 
       - name: Summary
+        if: always()
         run: |
-          go run ./test_parser.go ${{ steps.test.outputs.output }} >> $GITHUB_STEP_SUMMARY
+          go run ./test_parser.go ${{ steps.test.outputs.test2json }} >> $GITHUB_STEP_SUMMARY
           echo $GITHUB_STEP_SUMMARY
