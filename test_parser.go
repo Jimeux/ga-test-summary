@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"regexp"
 	"sort"
@@ -113,38 +114,57 @@ func handleEvent(b []byte) {
 }
 
 func writeMarkdown(w io.Writer) {
-	_, _ = fmt.Fprint(w, summaryTable())
+	summary := strings.Builder{}
+	summary.WriteString(summaryTable())
+
 	if len(failedTests) == 0 {
+		_, err := fmt.Fprint(w, summary.String())
+		if err != nil {
+			log.Fatalln(err)
+		}
 		return
 	}
-	_, _ = fmt.Fprintf(w, `## Run Failed Tests Locally
 
-`+"```"+`bash
-go test ./... -run '%s'
-`+"```"+`
+	summary.WriteString(`## Run Failed Tests Locally
+
+` + "```" + `bash
+go test ./... -run '` + runLocalCommand() + `'
+` + "```" + `
 
 ## Failure Details
-`, runLocalCommand())
+`)
 
 	fileTests := testsByFile()
 	for _, filename := range sortedKeys(fileTests) {
 		tests := fileTests[filename]
 		sort.Slice(tests, func(i, j int) bool { return tests[i] < tests[j] })
-		_, _ = fmt.Fprint(w, "---\n\n#### `"+filename+"`\n\n")
+		summary.WriteString("---\n\n#### `" + filename + "`\n\n")
 
 		for _, testName := range tests {
-			_, _ = fmt.Fprint(w, "<details>\n<summary>"+testName+"</summary>\n\n```diff\n")
+			details := strings.Builder{}
+			details.WriteString("<details>\n<summary>" + testName + "</summary>\n\n```diff\n")
+
 			for _, event := range testEvents[testName] {
 				output := strings.Trim(event.Output, " \n")
-				if output == "" ||
-					strings.HasPrefix(output, "=== RUN") ||
-					strings.HasPrefix(output, "--- FAIL") {
+				if !validateOutput(output) {
 					continue
 				}
-				_, _ = fmt.Fprintf(w, output+"\n")
+				details.WriteString(output + "\n")
 			}
-			_, _ = fmt.Fprintf(w, "```\n\n</details>\n\n")
+			details.WriteString("```\n\n</details>\n\n")
+
+			// $GITHUB_STEP_SUMMARY has a 1024K limit
+			if summary.Len()+details.Len() > 1_000_000 {
+				summary.WriteString("--- ## Test output exceeded the 1024K limit")
+				break
+			}
+			summary.WriteString(details.String())
 		}
+	}
+
+	_, err := fmt.Fprint(w, summary.String())
+	if err != nil {
+		log.Fatalln(err)
 	}
 }
 
@@ -189,4 +209,10 @@ func sortedKeys[T any](m map[string]T) []string {
 	}
 	sort.Slice(ord, func(i, j int) bool { return ord[i] < ord[j] })
 	return ord
+}
+
+func validateOutput(s string) bool {
+	return !(s == "" ||
+		strings.HasPrefix(s, "=== RUN") ||
+		strings.HasPrefix(s, "--- FAIL"))
 }
