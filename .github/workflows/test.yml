@@ -22,7 +22,8 @@ jobs:
         run: |
           json=$(go test ./... -json)
           status=$?
-          [ $status -eq 0 ] && echo "$cmd command was successful" || echo "$cmd failed"
+          [ $status -eq 0 ] && echo "command was successful" || echo "failed"
+          echo $json
           echo "::set-output name=test2json::$json"
 
       - name: Summary
