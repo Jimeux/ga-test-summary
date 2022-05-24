@@ -19,5 +19,5 @@ jobs:
 
       - name: Test
         run: |
-          set -o pipefail && go test ./... -json | go run ./test_parser.go
+          set -o pipefail && go test ./... -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           echo $GITHUB_STEP_SUMMARY
