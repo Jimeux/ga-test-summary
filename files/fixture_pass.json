@@ -1,16 +1,16 @@
-{"Time":"2022-05-24T22:37:46.191378+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_First"}
-{"Time":"2022-05-24T22:37:46.191492+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"=== RUN   TestTests4_First\n"}
-{"Time":"2022-05-24T22:37:46.191498+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"    tests_4_test.go:6: regex-catcher\n"}
-{"Time":"2022-05-24T22:37:46.191503+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"--- PASS: TestTests4_First (0.00s)\n"}
-{"Time":"2022-05-24T22:37:46.191507+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_First","Elapsed":0}
-{"Time":"2022-05-24T22:37:46.191511+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_Second"}
-{"Time":"2022-05-24T22:37:46.191514+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Second","Output":"=== RUN   TestTests4_Second\n"}
-{"Time":"2022-05-24T22:37:46.191518+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Second","Output":"--- PASS: TestTests4_Second (0.00s)\n"}
-{"Time":"2022-05-24T22:37:46.191521+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_Second","Elapsed":0}
-{"Time":"2022-05-24T22:37:46.191523+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_Third"}
-{"Time":"2022-05-24T22:37:46.191526+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Third","Output":"=== RUN   TestTests4_Third\n"}
-{"Time":"2022-05-24T22:37:46.191529+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Third","Output":"--- PASS: TestTests4_Third (0.00s)\n"}
-{"Time":"2022-05-24T22:37:46.191532+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_Third","Elapsed":0}
-{"Time":"2022-05-24T22:37:46.191535+09:00","Action":"output","Package":"command-line-arguments","Output":"PASS\n"}
-{"Time":"2022-05-24T22:37:46.191538+09:00","Action":"output","Package":"command-line-arguments","Output":"ok  \tcommand-line-arguments\t(cached)\n"}
-{"Time":"2022-05-24T22:37:46.191705+09:00","Action":"pass","Package":"command-line-arguments","Elapsed":0}
+{"Time":"2022-05-25T21:17:30.326407+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_First"}
+{"Time":"2022-05-25T21:17:30.326559+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"=== RUN   TestTests4_First\n"}
+{"Time":"2022-05-25T21:17:30.326566+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"    tests_4_test.go:6: regex-catcher\n"}
+{"Time":"2022-05-25T21:17:30.326572+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_First","Output":"--- PASS: TestTests4_First (0.00s)\n"}
+{"Time":"2022-05-25T21:17:30.326575+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_First","Elapsed":0}
+{"Time":"2022-05-25T21:17:30.32658+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_Second"}
+{"Time":"2022-05-25T21:17:30.326583+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Second","Output":"=== RUN   TestTests4_Second\n"}
+{"Time":"2022-05-25T21:17:30.326586+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Second","Output":"--- PASS: TestTests4_Second (0.00s)\n"}
+{"Time":"2022-05-25T21:17:30.326589+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_Second","Elapsed":0}
+{"Time":"2022-05-25T21:17:30.326592+09:00","Action":"run","Package":"command-line-arguments","Test":"TestTests4_Third"}
+{"Time":"2022-05-25T21:17:30.326595+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Third","Output":"=== RUN   TestTests4_Third\n"}
+{"Time":"2022-05-25T21:17:30.326598+09:00","Action":"output","Package":"command-line-arguments","Test":"TestTests4_Third","Output":"--- PASS: TestTests4_Third (0.00s)\n"}
+{"Time":"2022-05-25T21:17:30.326601+09:00","Action":"pass","Package":"command-line-arguments","Test":"TestTests4_Third","Elapsed":0}
+{"Time":"2022-05-25T21:17:30.326603+09:00","Action":"output","Package":"command-line-arguments","Output":"PASS\n"}
+{"Time":"2022-05-25T21:17:30.326606+09:00","Action":"output","Package":"command-line-arguments","Output":"ok  \tcommand-line-arguments\t(cached)\n"}
+{"Time":"2022-05-25T21:17:30.326619+09:00","Action":"pass","Package":"command-line-arguments","Elapsed":0}

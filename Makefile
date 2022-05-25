@@ -1,5 +1,5 @@
 test:
-	go test ./tests1 ./tests2 -json | go run ./test_parser2.go
+	go test ./tests1 ./tests2 -json | go run ./test_parser.go
 
 gen-fixtures:
 	go test ./tests1 ./tests2 -json > ./files/fixture_fail.json || true

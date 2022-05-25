@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	_ "embed"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -20,7 +19,8 @@ const (
 	actionOutput = "output"
 	actionSkip   = "skip"
 
-	moduleName = "github.com/Jimeux/ga-summary"
+	moduleName    = "github.com/Jimeux/ga-summary"
+	maxOutputSize = 1_000_000 // $GITHUB_STEP_SUMMARY has a 1024K limit.
 )
 
 type (
@@ -34,7 +34,6 @@ type (
 		Elapsed float64   `json:"elapsed"`
 		Output  string    `json:"output"`
 	}
-
 	// Test is used to collect and store data for a specific Go test.
 	Test struct {
 		Package string
@@ -53,26 +52,26 @@ var (
 	testOutput map[string]*Test
 	// counts for different test statuses.
 	failCount, passCount, skipCount int
-	// parseErrCount counts event parsing failures.
-	// Deprecated: remove when functionality is properly validated.
-	parseErrCount int
 )
 
 func main() {
-	// init data here for testing purposes
+	// init data here for testing purposes.
 	testOutput = make(map[string]*Test, 200)
-	failCount, passCount, skipCount, parseErrCount = 0, 0, 0, 0
+	failCount, passCount, skipCount = 0, 0, 0
 
 	scan := bufio.NewScanner(source)
 	for scan.Scan() {
 		var event Event
 		if err := json.Unmarshal(scan.Bytes(), &event); err != nil {
-			parseErrCount++
-			return
+			continue
 		}
 		handleEvent(event)
 	}
-	writeMarkdown(dest)
+
+	markdown := markdownAll()
+	if _, err := fmt.Fprint(dest, markdown); err != nil {
+		log.Fatal(err)
+	}
 }
 
 func handleEvent(event Event) {
@@ -80,6 +79,7 @@ func handleEvent(event Event) {
 		return
 	}
 
+	// get or initialize data for event.Test.
 	testKey := event.Package + "/" + event.Test
 	test, ok := testOutput[testKey]
 	if !ok {
@@ -90,7 +90,7 @@ func handleEvent(event Event) {
 		testOutput[testKey] = test
 	}
 
-	// output events come before pass/fail/skip events, so initially save all output and clear later.
+	// fail/pass/skip events come LAST, so initially save all output and update/clear later.
 	switch event.Action {
 	case actionFail:
 		failCount++
@@ -102,7 +102,7 @@ func handleEvent(event Event) {
 		delete(testOutput, testKey)
 	case actionOutput:
 		test.Output = append(test.Output, event.Output)
-		// file names are not readily available, so search for them in output
+		// file names are not readily available, so search for them in output.
 		matches := fileNameExp.FindStringSubmatch(event.Output)
 		if len(matches) > 1 {
 			test.File = strings.TrimPrefix(event.Package+"/"+matches[1], moduleName+"/")
@@ -110,79 +110,79 @@ func handleEvent(event Event) {
 	}
 }
 
-func writeMarkdown(w io.Writer) {
+func markdownAll() string {
 	summary := strings.Builder{}
-	summary.WriteString(summaryTable())
+	summary.WriteString(markdownSummaryTable())
 
 	if failCount == 0 {
-		if _, err := fmt.Fprint(w, summary.String()); err != nil {
-			log.Fatalln(err)
-		}
-		return
+		return summary.String()
 	}
 
 	summary.WriteString("## Failed Tests\n\n")
 
-	groupedResults := testsByPackageAndFile()
-	for _, pkg := range sortedKeys(groupedResults) {
-		fileTests := groupedResults[pkg]
+	packageFileTests := testsByPackageAndFile()
+	// ① packages
+	for _, pkg := range sortedKeys(packageFileTests) {
+		shortPkgName := strings.TrimPrefix(pkg, moduleName+"/")
+		summary.WriteString("---\n\n### `" + shortPkgName + "`\n\n")
 
-		summary.WriteString("---\n\n### `" + pkg + "`\n\n")
-		summary.WriteString(runLocalCommand(pkg, fileTests))
+		fileTests := packageFileTests[pkg]
+		summary.WriteString(markdownRunLocally(pkg, fileTests))
 		summary.WriteString("\n\n### Details\n\n")
-
+		// ② files
 		for _, filename := range sortedKeys(fileTests) {
 			tests := fileTests[filename]
+			shortFileName := strings.TrimPrefix(filename, shortPkgName+"/")
+			summary.WriteString("\n#### `" + shortFileName + "`\n\n")
+			// ③ tests
 			sort.Slice(tests, func(i, j int) bool { return tests[i].Name < tests[j].Name })
-			summary.WriteString("\n#### `" + filename + "`\n\n")
-
 			for _, test := range tests {
-				details := strings.Builder{}
-				details.WriteString("<details>\n<summary>" + test.Name + "</summary>\n\n```diff\n")
-
-				for _, output := range test.Output {
-					output = strings.Trim(output, " \n")
-					if !validateOutput(output) {
-						continue
-					}
-					details.WriteString(output + "\n")
-				}
-				details.WriteString("```\n\n</details>\n\n")
-
-				// $GITHUB_STEP_SUMMARY has a 1024K limit
-				if summary.Len()+details.Len() > 1_000_000 {
+				details := markdownTestDetails(test)
+				if summary.Len()+len(details) > maxOutputSize {
 					summary.WriteString("---\n\n## Test output exceeded the 1024K limit")
-					break
+					return summary.String()
 				}
-				summary.WriteString(details.String())
+				summary.WriteString(details + "\n\n")
 			}
 		}
 	}
-
-	if _, err := fmt.Fprint(w, summary.String()); err != nil {
-		log.Fatalln(err)
-	}
+	return summary.String()
 }
 
-func summaryTable() string {
-	return fmt.Sprintf(`# Test Summary
+func markdownSummaryTable() string {
+	return fmt.Sprintf(`## Test Summary
 
 |     Status      | Count |
 |-----------------|-------|
 | ✅ Passed       | %d   |
 | ❌ Failed       | %d   |
 | ⏩ Skipped      | %d   |
-| 💥 Parse Errors | %d   |
 
-`, passCount, failCount, skipCount, parseErrCount)
+`, passCount, failCount, skipCount)
 }
 
-// runLocalCommand returns a go test command for the given package and test names.
-func runLocalCommand(pkg string, file map[string][]*Test) string {
+// markdownTestDetails creates a string with all test.Output values inside a <details> tag.
+func markdownTestDetails(test *Test) string {
+	details := strings.Builder{}
+	details.WriteString("<details>\n<summary>" + test.Name + "</summary>\n\n```diff\n")
+
+	for _, output := range test.Output {
+		output = strings.Trim(output, " \n")
+		if !validateOutput(output) {
+			continue
+		}
+		details.WriteString(output + "\n")
+	}
+	details.WriteString("```\n\n</details>")
+	return details.String()
+}
+
+// markdownRunLocally returns a go test command for the given package and test names.
+func markdownRunLocally(pkg string, file map[string][]*Test) string {
 	names := make([]string, 0, len(file))
 	for _, tests := range file {
 		for _, test := range tests {
-			if !strings.Contains(test.Name, "/") { // exclude sub-tests
+			if !strings.Contains(test.Name, "/") { // exclude sub-tests.
 				names = append(names, test.Name)
 			}
 		}
@@ -196,10 +196,15 @@ go test ` + pkg + ` -run '` + strings.Join(names, "|") + `'
 ` + "```"
 }
 
-// testsByPackageAndFile group testOutput in the structure package -> file -> tests.
+// testsByPackageAndFile groups testOutput data in the structure package -> file -> tests.
 func testsByPackageAndFile() map[string]map[string][]*Test {
 	grouped := make(map[string]map[string][]*Test)
 	for _, test := range testOutput {
+		// Note: without any logging, parent tests only have output "=== RUN" and "--- FAIL",
+		// so the filename will not be recovered.
+		if test.File == "" {
+			continue
+		}
 		if _, ok := grouped[test.Package]; !ok {
 			grouped[test.Package] = make(map[string][]*Test, 10)
 		}
@@ -221,9 +226,10 @@ func sortedKeys[T any](m map[string]T) []string {
 	return ord
 }
 
-// validateOutput determines if a test output should be written to markdown.
+// validateOutput determines if a test output string should be written to markdown.
 func validateOutput(s string) bool {
 	return !(s == "" ||
 		strings.HasPrefix(s, "=== RUN") ||
+		strings.HasPrefix(s, "=== CONT") ||
 		strings.HasPrefix(s, "--- FAIL"))
 }

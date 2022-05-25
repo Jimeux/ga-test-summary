@@ -1,17 +1,18 @@
-# Test Summary
+## Test Summary
+
+---
 
 |     Status      | Count |
 |-----------------|-------|
 | ✅ Passed       | 10   |
 | ❌ Failed       | 16   |
 | ⏩ Skipped      | 2   |
-| 💥 Parse Errors | 0   |
 
 ## Failed Tests
 
 ---
 
-### `github.com/Jimeux/ga-summary/tests1`
+### `tests1`
 
 ### Run Locally
 
@@ -22,13 +23,13 @@ go test github.com/Jimeux/ga-summary/tests1 -run 'TestTests1_First|TestTests1_Fo
 ### Details
 
 
-#### `tests1/tests_1_test.go`
+#### `tests_1_test.go`
 
 <details>
 <summary>TestTests1_First</summary>
 
 ```diff
-2022/05/24 22:37:41 Example log
+2022/05/25 21:17:29 Example log
 tests_1_test.go:10: failed first
 ```
 
@@ -65,15 +66,15 @@ tests_1_test.go:37: failed sub-test
 <summary>TestTests1_Third</summary>
 
 ```diff
-2022/05/24 22:37:41 Example log third 1
-2022/05/24 22:37:41 Example log third 2
+2022/05/25 21:17:29 Example log third 1
+2022/05/25 21:17:29 Example log third 2
 tests_1_test.go:20: failed third
 ```
 
 </details>
 
 
-#### `tests1/tests_2_test.go`
+#### `tests_2_test.go`
 
 <details>
 <summary>TestTests2_First</summary>
@@ -94,7 +95,7 @@ tests_2_test.go:13: failed third
 </details>
 
 
-#### `tests1/tests_3_test.go`
+#### `tests_3_test.go`
 
 <details>
 <summary>TestTests3_First</summary>
@@ -116,7 +117,7 @@ tests_3_test.go:13: failed third
 
 ---
 
-### `github.com/Jimeux/ga-summary/tests2`
+### `tests2`
 
 ### Run Locally
 
@@ -127,13 +128,13 @@ go test github.com/Jimeux/ga-summary/tests2 -run 'TestTests1_First|TestTests1_Fo
 ### Details
 
 
-#### `tests2/tests_1_test.go`
+#### `tests_1_test.go`
 
 <details>
 <summary>TestTests1_First</summary>
 
 ```diff
-2022/05/24 22:37:41 Example log
+2022/05/25 21:17:29 Example log
 tests_1_test.go:10: failed first
 ```
 
@@ -170,15 +171,15 @@ tests_1_test.go:37: failed sub-test
 <summary>TestTests1_Third</summary>
 
 ```diff
-2022/05/24 22:37:41 Example log third 1
-2022/05/24 22:37:41 Example log third 2
+2022/05/25 21:17:29 Example log third 1
+2022/05/25 21:17:29 Example log third 2
 tests_1_test.go:20: failed third
 ```
 
 </details>
 
 
-#### `tests2/tests_2_test.go`
+#### `tests_2_test.go`
 
 <details>
 <summary>TestTests2_First</summary>
