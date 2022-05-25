@@ -4,21 +4,26 @@ on:
   push:
 
 jobs:
-  build-and-test:
+  tests1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
+      - uses: actions/setup-go@v3
         with:
           go-version: 1.18
 
-      - name: Build
-        run: go build -v ./...
-
       - name: Test tests1
         run: set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+
+  tests2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
 
       - name: Test tests2
         run: set -o pipefail && go test ./tests2 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
