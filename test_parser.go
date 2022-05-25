@@ -152,11 +152,9 @@ func markdownAll() string {
 func markdownSummaryTable() string {
 	return fmt.Sprintf(`## Test Summary
 
-|     Status      | Count |
-|-----------------|-------|
-| ✅ Passed       | %d   |
-| ❌ Failed       | %d   |
-| ⏩ Skipped      | %d   |
+| ✅ Passed | ❌ Failed | ⏩ Skipped |
+|-----------|----------|------------|
+|    %d     |     %d   |     %d     |
 
 `, passCount, failCount, skipCount)
 }
