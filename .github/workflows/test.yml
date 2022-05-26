@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  tests1:
+  one-step:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
       - name: Test tests1
         run: set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
 
-  tests2:
+  two-steps:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -42,6 +42,9 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
+
+      - name: Test tests1
+        run: set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
 
       - name: Test tests2
         run: set -o pipefail && go test ./tests2 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
