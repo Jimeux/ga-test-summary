@@ -1,8 +1,8 @@
 # ga-test-summary
 
-### An example GitHub Actions summary for `go test`
+### Example usage of `$GITHUB_STEP_SUMMARY` for `go test`
 
-See [.github/golden.md](https://github.com/Jimeux/ga-test-summary/tree/main/.github/golden.md) for an example.
+See [files/golden_fail.md](https://github.com/Jimeux/ga-test-summary/tree/main/files/golden_fail.md) for an example.
 
 ## References
 

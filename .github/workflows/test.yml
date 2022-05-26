@@ -12,7 +12,15 @@ jobs:
       - uses: actions/setup-go@v3.1.0
         with:
           go-version-file: go.mod
-          cache: true
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
 
       - name: Test tests1
         run: set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
@@ -25,7 +33,15 @@ jobs:
       - uses: actions/setup-go@v3.1.0
         with:
           go-version-file: go.mod
-          cache: true
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
 
       - name: Test tests2
         run: set -o pipefail && go test ./tests2 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
