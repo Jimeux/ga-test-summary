@@ -23,7 +23,13 @@ jobs:
             ${{ runner.os }}-go-
 
       - name: Test tests1
-        run: set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+        run: |
+          go test ./tests1 -json > ${{ github.workspace }}/tests1.out
+          echo $(cat ${{ github.workspace }}/tests1.out)
+          set -o pipefail && cat ${{ github.workspace }}/tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          
+          
+          set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
 
   two-steps:
     runs-on: ubuntu-latest
