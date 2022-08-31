@@ -7,7 +7,7 @@ import (
 
 func TestTests1_First(t *testing.T) {
 	log.Println("Example log")
-	t.Fatal("failed first")
+	//	t.Fatal("failed first")
 }
 
 func TestTests1_Second(t *testing.T) {
@@ -17,7 +17,7 @@ func TestTests1_Second(t *testing.T) {
 func TestTests1_Third(t *testing.T) {
 	log.Println("Example log third 1")
 	log.Println("Example log third 2")
-	t.Fatal("failed third")
+	//	t.Fatal("failed third")
 }
 
 func TestTests1_FourthTable(t *testing.T) {
@@ -34,7 +34,7 @@ func TestTests1_FourthTable(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			if test.fail {
-				t.Fatal("failed sub-test")
+				//				t.Fatal("failed sub-test")
 			}
 		})
 	}

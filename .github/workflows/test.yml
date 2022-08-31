@@ -23,7 +23,11 @@ jobs:
             ${{ runner.os }}-go-
 
       - name: Test tests1
-        run: set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+        run: |
+          go test ./tests1 -json > tests1.out || ERROR="true"
+          cat ./tests1.out
+          [[ "$ERROR" == "true" ]] && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          if [[ "$ERROR" == "true" ]]; then exit 1; else exit 0; fi
 
   two-steps:
     runs-on: ubuntu-latest
@@ -43,16 +47,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: Test tests1
-        run: |
-          set -o pipefail && go test ./tests1 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
-          echo $GITHUB_STEP_SUMMARY
-
       - name: Test tests2
-        if: always()
         run: |
-          set -o pipefail && go test ./tests2 -json | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
-          echo $GITHUB_STEP_SUMMARY
+          go test ./tests2 -json > tests2.out || ERROR="true"
+          cat ./tests2.out
+          [[ "$ERROR" == "true" ]] && cat ./tests2.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          if [[ "$ERROR" == "true" ]]; then exit 1; else exit 0; fi
 
 #      - name: Test
 #        id: test
