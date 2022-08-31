@@ -25,7 +25,7 @@ jobs:
       - name: Test tests1
         run: |
           touch tests1.out
-          set -e go test ./tests1 -json > tests1.out || true
+          go test ./tests1 -json > tests1.out || true
           echo "catty"
           cat ./tests1.out
           echo "echoy"
