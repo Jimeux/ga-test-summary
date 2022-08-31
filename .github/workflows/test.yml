@@ -27,7 +27,7 @@ jobs:
           go test ./tests1 -json > tests1.out || ERROR="true"
           cat ./tests1.out
           [[ "$ERROR" == "true" ]] && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
-          [[ "$ERROR" == "true" ]] && exit 1
+          if [[ "$ERROR" == "true" ]]; then exit 1; else exit 0; fi
 
   two-steps:
     runs-on: ubuntu-latest
@@ -50,9 +50,9 @@ jobs:
       - name: Test tests2
         run: |
           go test ./tests2 -json > tests2.out || ERROR="true"
-          # cat ./tests2.out
+          cat ./tests2.out
           [[ "$ERROR" == "true" ]] && cat ./tests2.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
-          [[ "$ERROR" == "true" ]] && exit 1
+          if [[ "$ERROR" == "true" ]]; then exit 1; else exit 0; fi
 
 #      - name: Test
 #        id: test
