@@ -31,7 +31,7 @@ jobs:
           echo $ERROR
           echo "ERROR is..."
           
-          if [[ "$ERROR" != "" ]] exit 1 
+          [[ "$ERROR" != "" ]] && exit 1 
           
           #go test ./tests1 -json > tests1.out || true
           #echo "catty"

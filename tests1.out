@@ -1,87 +1,87 @@
-{"Time":"2022-08-31T18:20:44.78704+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First"}
-{"Time":"2022-08-31T18:20:44.787179+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"=== RUN   TestTests1_First\n"}
-{"Time":"2022-08-31T18:20:44.787193+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"2022/08/31 18:20:44 Example log\n"}
-{"Time":"2022-08-31T18:20:44.787211+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"    tests_1_test.go:10: failed first\n"}
-{"Time":"2022-08-31T18:20:44.787247+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"--- FAIL: TestTests1_First (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787254+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787263+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second"}
-{"Time":"2022-08-31T18:20:44.787267+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Output":"=== RUN   TestTests1_Second\n"}
-{"Time":"2022-08-31T18:20:44.78727+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Output":"    tests_1_test.go:14: pass filename regexp-catcher\n"}
-{"Time":"2022-08-31T18:20:44.787286+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Output":"--- PASS: TestTests1_Second (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.78729+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787293+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third"}
-{"Time":"2022-08-31T18:20:44.787297+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"=== RUN   TestTests1_Third\n"}
-{"Time":"2022-08-31T18:20:44.787301+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"2022/08/31 18:20:44 Example log third 1\n"}
-{"Time":"2022-08-31T18:20:44.787305+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"2022/08/31 18:20:44 Example log third 2\n"}
-{"Time":"2022-08-31T18:20:44.787309+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"    tests_1_test.go:20: failed third\n"}
-{"Time":"2022-08-31T18:20:44.787313+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"--- FAIL: TestTests1_Third (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787321+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787324+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable"}
-{"Time":"2022-08-31T18:20:44.787328+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Output":"=== RUN   TestTests1_FourthTable\n"}
-{"Time":"2022-08-31T18:20:44.787332+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Output":"    tests_1_test.go:24: fail filename regexp-catcher\n"}
-{"Time":"2022-08-31T18:20:44.787336+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1"}
-{"Time":"2022-08-31T18:20:44.78734+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Output":"=== RUN   TestTests1_FourthTable/subtest_1\n"}
-{"Time":"2022-08-31T18:20:44.787343+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Output":"    tests_1_test.go:37: failed sub-test\n"}
-{"Time":"2022-08-31T18:20:44.787354+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2"}
-{"Time":"2022-08-31T18:20:44.787357+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Output":"=== RUN   TestTests1_FourthTable/subtest_2\n"}
-{"Time":"2022-08-31T18:20:44.787361+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Output":"    tests_1_test.go:37: failed sub-test\n"}
-{"Time":"2022-08-31T18:20:44.787364+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3"}
-{"Time":"2022-08-31T18:20:44.787367+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3","Output":"=== RUN   TestTests1_FourthTable/subtest_3\n"}
-{"Time":"2022-08-31T18:20:44.78737+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Output":"--- FAIL: TestTests1_FourthTable (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787374+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Output":"    --- FAIL: TestTests1_FourthTable/subtest_1 (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.78742+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787424+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Output":"    --- FAIL: TestTests1_FourthTable/subtest_2 (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787428+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787431+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3","Output":"    --- PASS: TestTests1_FourthTable/subtest_3 (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787435+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787438+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787441+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First"}
-{"Time":"2022-08-31T18:20:44.787443+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Output":"=== RUN   TestTests2_First\n"}
-{"Time":"2022-08-31T18:20:44.787452+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Output":"    tests_2_test.go:6: failed first\n"}
-{"Time":"2022-08-31T18:20:44.787456+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Output":"--- FAIL: TestTests2_First (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787459+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787462+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second"}
-{"Time":"2022-08-31T18:20:44.787466+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second","Output":"=== RUN   TestTests2_Second\n"}
-{"Time":"2022-08-31T18:20:44.787469+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second","Output":"--- PASS: TestTests2_Second (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787472+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787475+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third"}
-{"Time":"2022-08-31T18:20:44.787478+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Output":"=== RUN   TestTests2_Third\n"}
-{"Time":"2022-08-31T18:20:44.787486+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Output":"    tests_2_test.go:13: failed third\n"}
-{"Time":"2022-08-31T18:20:44.78749+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Output":"--- FAIL: TestTests2_Third (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787494+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787497+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip"}
-{"Time":"2022-08-31T18:20:44.7875+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"=== RUN   TestTests2_FourthSkip\n"}
-{"Time":"2022-08-31T18:20:44.787503+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"    tests_2_test.go:17: skip regexp-catcher\n"}
-{"Time":"2022-08-31T18:20:44.787506+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"    tests_2_test.go:18: skip it\n"}
-{"Time":"2022-08-31T18:20:44.78751+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"--- SKIP: TestTests2_FourthSkip (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787518+09:00","Action":"skip","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787521+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First"}
-{"Time":"2022-08-31T18:20:44.787524+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Output":"=== RUN   TestTests3_First\n"}
-{"Time":"2022-08-31T18:20:44.787527+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Output":"    tests_3_test.go:6: failed first\n"}
-{"Time":"2022-08-31T18:20:44.787531+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Output":"--- FAIL: TestTests3_First (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787534+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787537+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second"}
-{"Time":"2022-08-31T18:20:44.78754+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second","Output":"=== RUN   TestTests3_Second\n"}
-{"Time":"2022-08-31T18:20:44.78755+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second","Output":"--- PASS: TestTests3_Second (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787556+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787559+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third"}
-{"Time":"2022-08-31T18:20:44.787562+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Output":"=== RUN   TestTests3_Third\n"}
-{"Time":"2022-08-31T18:20:44.787566+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Output":"    tests_3_test.go:13: failed third\n"}
-{"Time":"2022-08-31T18:20:44.787569+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Output":"--- FAIL: TestTests3_Third (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787572+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787575+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First"}
-{"Time":"2022-08-31T18:20:44.787583+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Output":"=== RUN   TestTests4_First\n"}
-{"Time":"2022-08-31T18:20:44.787586+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Output":"    tests_4_test.go:6: regex-catcher\n"}
-{"Time":"2022-08-31T18:20:44.78759+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Output":"--- PASS: TestTests4_First (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787593+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787596+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second"}
-{"Time":"2022-08-31T18:20:44.787599+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second","Output":"=== RUN   TestTests4_Second\n"}
-{"Time":"2022-08-31T18:20:44.787603+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second","Output":"--- PASS: TestTests4_Second (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787606+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787609+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third"}
-{"Time":"2022-08-31T18:20:44.787612+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third","Output":"=== RUN   TestTests4_Third\n"}
-{"Time":"2022-08-31T18:20:44.787615+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third","Output":"--- PASS: TestTests4_Third (0.00s)\n"}
-{"Time":"2022-08-31T18:20:44.787618+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third","Elapsed":0}
-{"Time":"2022-08-31T18:20:44.787621+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Output":"FAIL\n"}
-{"Time":"2022-08-31T18:20:44.787692+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Output":"FAIL\tgithub.com/Jimeux/ga-summary/tests1\t0.090s\n"}
-{"Time":"2022-08-31T18:20:44.787707+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Elapsed":0.09}
+{"Time":"2022-08-31T18:26:19.66202+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First"}
+{"Time":"2022-08-31T18:26:19.66217+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"=== RUN   TestTests1_First\n"}
+{"Time":"2022-08-31T18:26:19.662185+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"2022/08/31 18:26:19 Example log\n"}
+{"Time":"2022-08-31T18:26:19.662192+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"    tests_1_test.go:10: failed first\n"}
+{"Time":"2022-08-31T18:26:19.662199+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Output":"--- FAIL: TestTests1_First (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662204+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_First","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662213+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second"}
+{"Time":"2022-08-31T18:26:19.662216+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Output":"=== RUN   TestTests1_Second\n"}
+{"Time":"2022-08-31T18:26:19.662219+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Output":"    tests_1_test.go:14: pass filename regexp-catcher\n"}
+{"Time":"2022-08-31T18:26:19.662227+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Output":"--- PASS: TestTests1_Second (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662231+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Second","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662235+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third"}
+{"Time":"2022-08-31T18:26:19.662239+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"=== RUN   TestTests1_Third\n"}
+{"Time":"2022-08-31T18:26:19.662242+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"2022/08/31 18:26:19 Example log third 1\n"}
+{"Time":"2022-08-31T18:26:19.662245+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"2022/08/31 18:26:19 Example log third 2\n"}
+{"Time":"2022-08-31T18:26:19.662254+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"    tests_1_test.go:20: failed third\n"}
+{"Time":"2022-08-31T18:26:19.662258+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Output":"--- FAIL: TestTests1_Third (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662261+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_Third","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662264+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable"}
+{"Time":"2022-08-31T18:26:19.662267+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Output":"=== RUN   TestTests1_FourthTable\n"}
+{"Time":"2022-08-31T18:26:19.66227+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Output":"    tests_1_test.go:24: fail filename regexp-catcher\n"}
+{"Time":"2022-08-31T18:26:19.662273+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1"}
+{"Time":"2022-08-31T18:26:19.662276+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Output":"=== RUN   TestTests1_FourthTable/subtest_1\n"}
+{"Time":"2022-08-31T18:26:19.662279+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Output":"    tests_1_test.go:37: failed sub-test\n"}
+{"Time":"2022-08-31T18:26:19.66229+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2"}
+{"Time":"2022-08-31T18:26:19.662294+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Output":"=== RUN   TestTests1_FourthTable/subtest_2\n"}
+{"Time":"2022-08-31T18:26:19.662299+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Output":"    tests_1_test.go:37: failed sub-test\n"}
+{"Time":"2022-08-31T18:26:19.662312+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3"}
+{"Time":"2022-08-31T18:26:19.662318+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3","Output":"=== RUN   TestTests1_FourthTable/subtest_3\n"}
+{"Time":"2022-08-31T18:26:19.662323+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Output":"--- FAIL: TestTests1_FourthTable (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662329+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Output":"    --- FAIL: TestTests1_FourthTable/subtest_1 (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662339+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_1","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662343+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Output":"    --- FAIL: TestTests1_FourthTable/subtest_2 (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662347+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_2","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662353+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3","Output":"    --- PASS: TestTests1_FourthTable/subtest_3 (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662358+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable/subtest_3","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662362+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests1_FourthTable","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662364+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First"}
+{"Time":"2022-08-31T18:26:19.662367+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Output":"=== RUN   TestTests2_First\n"}
+{"Time":"2022-08-31T18:26:19.66237+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Output":"    tests_2_test.go:6: failed first\n"}
+{"Time":"2022-08-31T18:26:19.662375+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Output":"--- FAIL: TestTests2_First (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662378+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_First","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662381+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second"}
+{"Time":"2022-08-31T18:26:19.662384+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second","Output":"=== RUN   TestTests2_Second\n"}
+{"Time":"2022-08-31T18:26:19.662387+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second","Output":"--- PASS: TestTests2_Second (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662389+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Second","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662392+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third"}
+{"Time":"2022-08-31T18:26:19.662395+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Output":"=== RUN   TestTests2_Third\n"}
+{"Time":"2022-08-31T18:26:19.662403+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Output":"    tests_2_test.go:13: failed third\n"}
+{"Time":"2022-08-31T18:26:19.662406+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Output":"--- FAIL: TestTests2_Third (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662409+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_Third","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662412+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip"}
+{"Time":"2022-08-31T18:26:19.662415+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"=== RUN   TestTests2_FourthSkip\n"}
+{"Time":"2022-08-31T18:26:19.662417+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"    tests_2_test.go:17: skip regexp-catcher\n"}
+{"Time":"2022-08-31T18:26:19.66242+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"    tests_2_test.go:18: skip it\n"}
+{"Time":"2022-08-31T18:26:19.662423+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Output":"--- SKIP: TestTests2_FourthSkip (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662426+09:00","Action":"skip","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests2_FourthSkip","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662433+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First"}
+{"Time":"2022-08-31T18:26:19.662436+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Output":"=== RUN   TestTests3_First\n"}
+{"Time":"2022-08-31T18:26:19.662439+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Output":"    tests_3_test.go:6: failed first\n"}
+{"Time":"2022-08-31T18:26:19.662442+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Output":"--- FAIL: TestTests3_First (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662445+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_First","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662448+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second"}
+{"Time":"2022-08-31T18:26:19.662451+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second","Output":"=== RUN   TestTests3_Second\n"}
+{"Time":"2022-08-31T18:26:19.662462+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second","Output":"--- PASS: TestTests3_Second (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662465+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Second","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662468+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third"}
+{"Time":"2022-08-31T18:26:19.662471+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Output":"=== RUN   TestTests3_Third\n"}
+{"Time":"2022-08-31T18:26:19.662473+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Output":"    tests_3_test.go:13: failed third\n"}
+{"Time":"2022-08-31T18:26:19.662477+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Output":"--- FAIL: TestTests3_Third (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.66248+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests3_Third","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662488+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First"}
+{"Time":"2022-08-31T18:26:19.662497+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Output":"=== RUN   TestTests4_First\n"}
+{"Time":"2022-08-31T18:26:19.662499+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Output":"    tests_4_test.go:6: regex-catcher\n"}
+{"Time":"2022-08-31T18:26:19.662508+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Output":"--- PASS: TestTests4_First (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662512+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_First","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662515+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second"}
+{"Time":"2022-08-31T18:26:19.662518+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second","Output":"=== RUN   TestTests4_Second\n"}
+{"Time":"2022-08-31T18:26:19.662522+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second","Output":"--- PASS: TestTests4_Second (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662525+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Second","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662528+09:00","Action":"run","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third"}
+{"Time":"2022-08-31T18:26:19.66253+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third","Output":"=== RUN   TestTests4_Third\n"}
+{"Time":"2022-08-31T18:26:19.662533+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third","Output":"--- PASS: TestTests4_Third (0.00s)\n"}
+{"Time":"2022-08-31T18:26:19.662546+09:00","Action":"pass","Package":"github.com/Jimeux/ga-summary/tests1","Test":"TestTests4_Third","Elapsed":0}
+{"Time":"2022-08-31T18:26:19.662551+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Output":"FAIL\n"}
+{"Time":"2022-08-31T18:26:19.662815+09:00","Action":"output","Package":"github.com/Jimeux/ga-summary/tests1","Output":"FAIL\tgithub.com/Jimeux/ga-summary/tests1\t0.309s\n"}
+{"Time":"2022-08-31T18:26:19.662831+09:00","Action":"fail","Package":"github.com/Jimeux/ga-summary/tests1","Elapsed":0.309}
