@@ -26,12 +26,11 @@ jobs:
         run: |
           touch tests1.out
           
-          #ERROR=$(go test ./tests1 -json > tests1.out 2>&1)
+          go test ./tests1 -json > tests1.out || ERROR="true"
           echo "ERROR is..."
           echo $ERROR
           echo "ERROR is..."
-          
-          [[ "$ERROR" != "" ]] && exit 1 
+          [[ "$ERROR" == "true" ]] && exit 1 
           
           #go test ./tests1 -json > tests1.out || true
           #echo "catty"
