@@ -25,12 +25,12 @@ jobs:
       - name: Test tests1
         run: |
           touch tests1.out
-          go test ./tests1 -json > tests1.out
+          go test ./tests1 -json > tests1.out >&2
           echo "catty"
           cat ./tests1.out
           echo "echoy"
           echo "$(cat ./tests1.out)"
-          # set -o pipefail && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
 
   two-steps:
     runs-on: ubuntu-latest
