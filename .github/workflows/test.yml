@@ -24,20 +24,14 @@ jobs:
 
       - name: Test tests1
         run: |
-          touch tests1.out
-          
           go test ./tests1 -json > tests1.out || ERROR="true"
-          echo "ERROR is..."
-          echo $ERROR
-          echo "ERROR is..."
-          [[ "$ERROR" == "true" ]] && exit 1 
+          echo "catty"
+          cat ./tests1.out
+          echo "echoy"
+          echo "$(cat ./tests1.out)"
+          cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           
-          #go test ./tests1 -json > tests1.out || true
-          #echo "catty"
-          #cat ./tests1.out
-          #echo "echoy"
-          #echo "$(cat ./tests1.out)"
-          #cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          [[ "$ERROR" == "true" ]] && exit 1
 
   two-steps:
     runs-on: ubuntu-latest
