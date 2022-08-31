@@ -50,7 +50,7 @@ jobs:
       - name: Test tests2
         run: |
           go test ./tests2 -json > tests2.out || ERROR="true"
-          cat ./tests2.out
+          cat ./tests2.out || true
           [[ "$ERROR" == "true" ]] && cat ./tests2.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           [[ "$ERROR" == "true" ]] && exit 1
 
