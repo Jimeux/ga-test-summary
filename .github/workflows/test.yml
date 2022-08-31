@@ -26,7 +26,7 @@ jobs:
         run: |
           go test ./tests1 -json > tests1.out || ERROR="true"
           cat ./tests1.out
-          cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          [[ "$ERROR" == "true" ]] && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
           [[ "$ERROR" == "true" ]] && exit 1
 
   two-steps:
@@ -47,11 +47,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: Test tests1
+      - name: Test tests2
         run: |
-          go test ./tests1 -json > ./tests1.out
-          cat tests1.out
-          set -o pipefail && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          go test ./tests2 -json > tests2.out || ERROR="true"
+          cat ./tests2.out
+          [[ "$ERROR" == "true" ]] && cat ./tests2.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          [[ "$ERROR" == "true" ]] && exit 1
 
 #      - name: Test
 #        id: test
