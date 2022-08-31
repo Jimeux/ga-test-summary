@@ -30,7 +30,7 @@ jobs:
           cat ./tests1.out
           echo "echoy"
           echo "$(cat ./tests1.out)"
-          set -o pipefail && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
+          # set -o pipefail && cat ./tests1.out | go run ./test_parser.go >> $GITHUB_STEP_SUMMARY
 
   two-steps:
     runs-on: ubuntu-latest
